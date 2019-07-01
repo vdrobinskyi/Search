@@ -69,7 +69,6 @@ public class EmployeeService {
         }
 
         return Collections.emptyList();
-//        return employeeRepository.findByStartOfWork();
     }
     public List<Employee> searchByWorkPlace(String workLocation){return employeeRepository.findByWorkLocation(workLocation);}
 
