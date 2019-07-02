@@ -59,8 +59,6 @@ public class Employee {
         this.professionalityLevel = professionalityLevel;
     }
 
-
-
     public Long getId() {
         return id;
     }

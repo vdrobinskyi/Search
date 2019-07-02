@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import software.jevera.domain.Employee;
 import software.jevera.domain.ProfessionalityLevel;
+import software.jevera.domain.dto.DateDiffDto;
 import software.jevera.domain.dto.EmployeeDto;
 import software.jevera.exception.EmployeeAlreadyExist;
 import software.jevera.service.EmployeeService;
@@ -32,8 +33,8 @@ public class EmployeeController {
         return employeeService.searchByWorkPlace(workLocation);
     }
     @GetMapping("/findByExperience")
-    public List<Employee> findByExperience(String startOfWork, List<Employee> employees) throws Exception {
-        return employeeService.searchByExperience(parseDate(startOfWork), employees);
+    public List<Employee> findByExperience(String startOfWork, Long experience) throws Exception {
+        return employeeService.searchByExperience(parseDate(startOfWork), experience);
     }
     @GetMapping("/searchByName")
     public Optional<Employee> findByName(String fullName){
@@ -67,6 +68,6 @@ public class EmployeeController {
     }
 
     private Date parseDate(String date) throws Exception{
-        return new SimpleDateFormat("yyyy-MM-dd").parse(date);
+        return new SimpleDateFormat("yyyy.MM.dd").parse(date);
     }
 }

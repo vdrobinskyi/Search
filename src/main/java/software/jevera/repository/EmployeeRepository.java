@@ -21,9 +21,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     @Query(value = "SELECT e FROM Employee e")
     List<Employee> findAll();
 
-    Employee findById(Map.Entry<Long, Date> id);
-
-//    @Query(value = "select e from Employee e where ")
-//    List<Employee> findByStartOfWork();
+    Optional<Employee> findById(Long id);
 
 }
